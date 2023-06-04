@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Layout from './Layout';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import { useUserContext } from './UserContext';
+import AuthRoute from './components/AuthRoute';
 
 function App() {
+  const {sessionId} = useUserContext();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<ProtectedRoute sessionId={sessionId}><HomePage /></ProtectedRoute>}/>
+            <Route path="/login" element={<AuthRoute sessionId={sessionId}><LoginPage /></AuthRoute>}/>
+            <Route path="/register" element={<AuthRoute sessionId={sessionId}><RegisterPage /></AuthRoute>}/>
+          </Route>
+        </Routes>
+      </Router>
+    </>
+  )
 }
 
 export default App;
