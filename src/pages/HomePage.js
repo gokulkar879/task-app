@@ -39,6 +39,7 @@ function HomePage() {
         const srcArray = getSourceArray(srcId);
         const dstArray = getDestinationArray(dstId);
         const item = srcArray[srcIndex];
+        item.importance = dstId;
         srcArray.splice(srcIndex, 1);
         dstArray.splice(dstIndex, 0, item);
 
