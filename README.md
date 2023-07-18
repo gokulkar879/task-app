@@ -18,4 +18,6 @@ A simple task management app to let autheticated users create and delete a task.
 # Some screenshots from the app
 ![Alt text](https://cdn.hashnode.com/res/hashnode/image/upload/v1685975767451/28a892a7-8eb4-4e53-88e6-649f3f08d9fc.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp)
 
+# live link:
+https://shimmering-kheer-f4b2de.netlify.app
 
